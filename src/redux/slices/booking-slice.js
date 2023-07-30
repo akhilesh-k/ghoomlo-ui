@@ -11,7 +11,6 @@ export const bookingSlice = createSlice({
   reducers: {
     // redux toolkit uses immer internally ("state" here is actually a draft)
     updatePickUpLocation: (state, action) => {
-      console.log(action.payload)
       state.pickUpLocation = action.payload.pickUpLocation
     },
     updateDropLocation: (state, action) => {

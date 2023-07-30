@@ -1,7 +1,6 @@
 import './css/input-comp.css'
 
 const InputComp = ({ id, placeholder, type, value, label, onChange }) => {
-  console.log(label)
   if (label?.length) {
     return (
       <span className='input-container'>

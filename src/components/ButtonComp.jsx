@@ -1,11 +1,14 @@
 import './css/button-comp.css'
 
-const ButtonComp = ({ type, onClick, children }) => {
+const ButtonComp = ({ type, disabled, onClick, children }) => {
   const getClass = () => {
     let classes = 'button'
     switch(type) {
       case 'primary':
         classes += ' button-primary'
+        if (disabled) {
+          classes += ' disabled-primary'
+        }
         break
       case 'secondary':
         classes += ' button-secondary'
@@ -16,6 +19,7 @@ const ButtonComp = ({ type, onClick, children }) => {
   return (
     <button
       className={getClass()}
+      disabled={disabled}
       onClick={onClick}
     >
       {children}

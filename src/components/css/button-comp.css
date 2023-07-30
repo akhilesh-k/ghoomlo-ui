@@ -8,3 +8,7 @@
 .button-primary {
   background-color: #3C9B05;
 }
+.disabled-primary {
+  background-color: #EEEEEE;
+  cursor: not-allowed;
+}
