@@ -1,6 +1,6 @@
 import './css/button-comp.css'
 
-const ButtonComp = ({ type, disabled, onClick, children }) => {
+const ButtonComp = ({ type, disabled, size, onClick, children }) => {
   const getClass = () => {
     let classes = 'button'
     switch(type) {
@@ -12,6 +12,11 @@ const ButtonComp = ({ type, disabled, onClick, children }) => {
         break
       case 'secondary':
         classes += ' button-secondary'
+        break
+    }
+    switch(size) {
+      case 'small':
+        classes += ' button-small'
         break
     }
     return classes

@@ -121,7 +121,6 @@ const BookingComp = () => {
             />
           )
         })}
-        {vehicle}
         <SelectComp
           name="vehicle-selector"
           options={availableVehicles}

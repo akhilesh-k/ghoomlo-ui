@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 const VehicleCard = ({ vehicleData }) => {
   const dispatch = useDispatch();
   const updateVehicleType = () => {
+    window.scrollTo(0, 0);
     dispatch(
       updateVehicle({
         vehicle: vehicleData.value,
@@ -38,21 +39,16 @@ const VehicleCard = ({ vehicleData }) => {
   };
   return (
     <div className="vehicle-card">
-      <img
-        className="vehicle-image"
-        src={getImage()}
-        alt=""
-        srcSet=""
-      />
-      <p className="vehicle-title">
-        {vehicleData.value}
-      </p>
-      <ButtonComp
-        type="primary"
-        onClick={updateVehicleType}
-      >
-        Enquire Now
+      <img className="vehicle-image" src={getImage()} alt="" srcSet="" />
+      <p className="vehicle-title">{vehicleData.value}</p>
+      <div className="seat-rate">
+        <p>{vehicleData.seats} + 1 Seater</p>
+        <p>₹ {vehicleData.rate} / KM</p>
+      </div>
+      <ButtonComp type="primary" size="small" onClick={updateVehicleType}>
+        <span className="font-16-lh-20">Enquire Now</span>
       </ButtonComp>
+      <div className="pill">{vehicleData.type}</div>
     </div>
   );
 };

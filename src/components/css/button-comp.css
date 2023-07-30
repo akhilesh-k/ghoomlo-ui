@@ -12,3 +12,8 @@
   background-color: #EEEEEE;
   cursor: not-allowed;
 }
+.button-small {
+  height: 28px;
+  width: 132px;
+  padding: 0;
+}
