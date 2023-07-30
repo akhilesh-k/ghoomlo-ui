@@ -1,0 +1,28 @@
+.caller-action {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 48px);
+  padding: 16px;
+}
+
+.section-title {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.48px;
+  text-align: center;
+}
+
+.about {
+  color: #000;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.26px;
+  text-align: justify;
+  padding: 16px;
+  padding-bottom: 32px;
+}

@@ -6,14 +6,21 @@
   border: none;
 }
 .button-primary {
-  background-color: #3C9B05;
+  background-color: #3c9b05;
+  color: #fff;
 }
 .disabled-primary {
-  background-color: #EEEEEE;
+  background-color: #ebebe4;
   cursor: not-allowed;
+  color: #c6c6c6;
 }
 .button-small {
   height: 28px;
   width: 132px;
   padding: 0;
+  color: #fff;
+  font-size: 13px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.26px;
 }

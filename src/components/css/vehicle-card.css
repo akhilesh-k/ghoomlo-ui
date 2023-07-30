@@ -27,10 +27,17 @@
   width: 100%;
   max-height: 100%;
 }
+.vehicle-image {
+  aspect-ratio: 314/166;
+  max-width: 314px;
+  width: 100%;
+  max-height: 100%;
+  padding-top: 22px;
+}
 .seat-rate {
   width: calc(100% - 48px);
   display: flex;
-  margin: 8px 24px;
+  margin: 16px 24px;
   justify-content: space-between;
   color: #000;
   font-size: 13px;
@@ -45,7 +52,7 @@
   left: 14px;
   background-color: #0f70e6;
   border-radius: 8px;
-  padding: 4px 8px;
+  padding: 6px 16px;
   color: #fff;
   font-size: 11px;
   font-style: normal;

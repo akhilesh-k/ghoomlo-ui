@@ -21,8 +21,10 @@
 }
 .font-16-lh-20 {
   font-size: 16px;
-  color: #FFFFFF;
   line-height: 20px;
+}
+.font-white {
+  color: #fff;
 }
 .action-container {
   padding: 16px 24px 0px 24px;

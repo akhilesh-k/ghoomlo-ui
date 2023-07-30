@@ -46,7 +46,7 @@ const VehicleCard = ({ vehicleData }) => {
         <p>₹ {vehicleData.rate} / KM</p>
       </div>
       <ButtonComp type="primary" size="small" onClick={updateVehicleType}>
-        <span className="font-16-lh-20">Enquire Now</span>
+        <span className="font-16-lh-20 font-white">Enquire Now</span>
       </ButtonComp>
       <div className="pill">{vehicleData.type}</div>
     </div>
