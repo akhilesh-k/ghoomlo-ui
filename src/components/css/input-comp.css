@@ -16,6 +16,7 @@
   line-height: 16px;
   height: 46px;
   width: inherit;
+  color: #000000;
   box-sizing: border-box;
 }
 .input:focus {
@@ -23,12 +24,12 @@
   caret-color: #000000;
 }
 ::placeholder {
-  color: #000000;
+  color: #252020;
   opacity: 1;
 }
 :-ms-input-placeholder {
-  color: #000000;
+  color: #252020;
 }
 ::-ms-input-placeholder {
-  color: #000000;
+  color: #252020;
 }
