@@ -1,0 +1,28 @@
+.vehicle-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 16px;
+  padding: 26px 26px 16px 26px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-color: #fbf7f5;
+}
+.vehicle-title {
+  color: #000;
+  margin-top: 13px;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.36px;
+}
+
+.vehicle-image {
+  aspect-ratio: 186.54/117;
+  max-width: 186.54px;
+  width: 100%;
+  max-height: 100%;
+}

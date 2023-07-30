@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.input-container .input[type="datetime-local"] {
+.input-container .input[type="date"] {
   width: 200px;
 }
 .input {

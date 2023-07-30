@@ -1,26 +1,27 @@
-import './css/select-comp.css'
+import { useSelector } from "react-redux";
+import "./css/select-comp.css";
 
 const SelectComp = ({ name, options, onChange }) => {
-  return (
-    <select
-      name={name}
-      className="select"
-      defaultValue="Any"
-      onChange={onChange}
-    >
-      {options.map(opt => {
-        return (
-          <option
-            key={opt.id}
-            className="option"
-            value={opt.value}
-          >
-            {opt.name}
-          </option>
-        )
-      })}
-    </select>
-  )
-}
+  const selected = useSelector(state => state.booking.vehicle)
 
-export default SelectComp
+  return (
+    <>
+    {selected}
+      <select
+        name={name}
+        className="select"
+        onChange={onChange}
+      >
+        {options.map((opt) => {
+          return (
+            <option key={opt.id} className="option" value={opt.value}>
+              {opt.name}
+            </option>
+          );
+        })}
+      </select>
+    </>
+  );
+};
+
+export default SelectComp;

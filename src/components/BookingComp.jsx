@@ -15,14 +15,16 @@ import ButtonComp from './ButtonComp'
 import './css/booking-comp.css'
 
 const BookingComp = () => {
+  console.log("Rendering")
   const dispatch = useDispatch()
 
   const pickUpLocation = useSelector(state => state.booking.pickUpLocation)
   const dropLocation = useSelector(state => state.booking.dropLocation)
   const bookingDate = useSelector(state => state.booking.bookingDate)
   const vehicle = useSelector(state => state.booking.vehicle)
+  const availableVehicles = useSelector(state => state.booking.availableVehicles)
   const [disableEnquireCta, setDisableEnquireCta] = useState(true)
-
+  
   useEffect(() => {
     setDisableEnquireCta(!(pickUpLocation?.length > 0 &&
       dropLocation?.length > 0 &&
@@ -46,54 +48,9 @@ const BookingComp = () => {
   {
     id: 3,
     placeholder: 'Choose Pickup Date',
-    type: 'datetime-local',
+    type: 'date',
     value: undefined,
     label: 'Booking Date'
-  }]
-
-  const availableVehicles = [{
-    id: 1,
-    name: 'Vehicle - Any',
-    value: 'Any'
-  },
-  {
-    id: 2,
-    name: 'Vehicle - Scorpio',
-    value: 'Scorpio'
-  },
-  {
-    id: 3,
-    name: 'Vehicle - Honda Amaze',
-    value: 'Honda Amaze'
-  },
-  {
-    id: 4,
-    name: 'Vehicle - Swift Dezire',
-    value: 'Swift Dezire'
-  },{
-    id: 5,
-    name: 'Vehicle - Innova',
-    value: 'Innova'
-  },
-  {
-    id: 6,
-    name: 'Vehicle - WagonR',
-    value: 'WagonR'
-  },
-  {
-    id: 7,
-    name: 'Vehicle - Celerio',
-    value: 'Celerio'
-  },
-  {
-    id: 8,
-    name: 'Vehicle - Alto 800',
-    value: 'Alto-800'
-  },
-  {
-    id: 9,
-    name: 'Vehicle - Tempo Traveller',
-    value: 'Tempo Traveller'
   }]
 
   const updateDetails = (event, id) => {
@@ -165,6 +122,7 @@ const BookingComp = () => {
             />
           )
         })}
+        {vehicle}
         <SelectComp
           name="vehicle-selector"
           options={availableVehicles}
