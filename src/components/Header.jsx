@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import IconClose from "@/assets/icons/icon-close.svg";
 import HamBurger from "@/assets/icons/icon-hamburger-menu.svg";
 import AppLogo from "@/assets/images/app-logo.svg";
+import CallIcon from "@/assets/icons/icon-call.svg";
 import "./css/header.css";
 import "./css/colors.css";
 
@@ -36,7 +37,7 @@ const HamburgerMenuComp = () => {
 const CallPanel = ({ phoneNumber, makeCall }) => {
   return (
     <div className="panel" onClick={makeCall}>
-      <img src="src/assets/icons/icon-call.svg" width="15px" height="16px" />
+      <img src={CallIcon} width="15px" height="16px" />
       <strong className="white">{phoneNumber}</strong>
     </div>
   );
