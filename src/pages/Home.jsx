@@ -10,7 +10,12 @@ const Home = () => {
       <BookingComp />
       {availableVehicles.map((vehicle) => {
         if (vehicle.id > 1) {
-          return <VehicleCard key={vehicle.id} vehicleData={vehicle} />;
+          return (
+            <VehicleCard
+              key={vehicle.id}
+              vehicleData={vehicle}
+            />
+          )
         }
       })}
     </>

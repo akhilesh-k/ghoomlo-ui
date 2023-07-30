@@ -15,7 +15,6 @@ import ButtonComp from './ButtonComp'
 import './css/booking-comp.css'
 
 const BookingComp = () => {
-  console.log("Rendering")
   const dispatch = useDispatch()
 
   const pickUpLocation = useSelector(state => state.booking.pickUpLocation)
@@ -126,6 +125,7 @@ const BookingComp = () => {
         <SelectComp
           name="vehicle-selector"
           options={availableVehicles}
+          selected={vehicle}
           onChange={event => updateDetails(event, 4)}
         />
         <div className="action-container">

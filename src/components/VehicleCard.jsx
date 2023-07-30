@@ -12,7 +12,6 @@ import { useDispatch } from "react-redux";
 const VehicleCard = ({ vehicleData }) => {
   const dispatch = useDispatch();
   const updateVehicleType = () => {
-    alert(vehicleData.value)
     dispatch(
       updateVehicle({
         vehicle: vehicleData.value,
@@ -20,8 +19,6 @@ const VehicleCard = ({ vehicleData }) => {
     );
   };
   const getImage = () => {
-    console.log(vehicleData);
-    console.log(vehicleData.type);
     switch (vehicleData.type?.toLowerCase()) {
       case "mini":
         return Mini;
@@ -41,9 +38,19 @@ const VehicleCard = ({ vehicleData }) => {
   };
   return (
     <div className="vehicle-card">
-      <img className="vehicle-image" src={getImage()} alt="" srcSet="" />
-      <p className="vehicle-title">{vehicleData.value}</p>
-      <ButtonComp type="primary" onClick={updateVehicleType}>
+      <img
+        className="vehicle-image"
+        src={getImage()}
+        alt=""
+        srcSet=""
+      />
+      <p className="vehicle-title">
+        {vehicleData.value}
+      </p>
+      <ButtonComp
+        type="primary"
+        onClick={updateVehicleType}
+      >
         Enquire Now
       </ButtonComp>
     </div>
