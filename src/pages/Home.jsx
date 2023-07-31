@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import BookingComp from "../components/BookingComp";
 import VehicleCard from "../components/VehicleCard";
 import PhoneImage from "@/assets/images/phone.svg";
+import Footer from "../components/Footer";
 import WhatsappImage from "@/assets/images/whatsapp.svg";
 import { useRef } from "react";
 import UniqueSellingPoint from "../components/UniqueSellingPoint";
@@ -62,6 +63,7 @@ const Home = () => {
         take bookings for Luxury vehicles for your best occasions. Book today
         and enjoy the best tour and travel experiences.
       </p>
+      <Footer />
     </>
   );
 };
