@@ -35,7 +35,7 @@ export const bookingSlice = createSlice({
         image: "sedan.svg",
         type: "Sedan",
         seats: "4",
-        rate: "",
+        rate: "12",
         displayName: "",
       },
       {
@@ -45,8 +45,8 @@ export const bookingSlice = createSlice({
         image: "mvp.svg",
         type: "MPV",
         seats: "6",
-        rate: "7",
-        displayName: "17",
+        rate: "17",
+        displayName: "",
       },
       {
         id: 5,
