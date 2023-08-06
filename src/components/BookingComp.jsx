@@ -1,95 +1,100 @@
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   updatePickUpLocation,
   updateDropLocation,
-  updateBookingDate,
-  updateVehicle
-} from '../redux/slices/booking-slice.js'
+  updateVehicle,
+} from "../redux/slices/booking-slice.js";
 
-import InputComp from './InputComp'
-import SelectComp from './SelectComp'
-import ButtonComp from './ButtonComp'
+import InputComp from "./InputComp";
+import SelectComp from "./SelectComp";
+import ButtonComp from "./ButtonComp";
+import DatePickerInput from "./DatePickerInput.jsx";
 
-import './css/booking-comp.css'
+import "./css/booking-comp.css";
 
 const BookingComp = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const [selectedDate, setSelectedDate] = useState(null);
 
-  const pickUpLocation = useSelector(state => state.booking.pickUpLocation)
-  const dropLocation = useSelector(state => state.booking.dropLocation)
-  const bookingDate = useSelector(state => state.booking.bookingDate)
-  const vehicle = useSelector(state => state.booking.vehicle)
-  const availableVehicles = useSelector(state => state.booking.availableVehicles)
-  const [disableEnquireCta, setDisableEnquireCta] = useState(true)
-  
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  const pickUpLocation = useSelector((state) => state.booking.pickUpLocation);
+  const dropLocation = useSelector((state) => state.booking.dropLocation);
+  const vehicle = useSelector((state) => state.booking.vehicle);
+  const availableVehicles = useSelector(
+    (state) => state.booking.availableVehicles
+  );
+
+  const [disableEnquireCta, setDisableEnquireCta] = useState(true);
+
   useEffect(() => {
-    setDisableEnquireCta(!(pickUpLocation?.length > 0 &&
-      dropLocation?.length > 0 &&
-      bookingDate?.toLocaleString()?.length > 0))
-  }, [pickUpLocation, dropLocation, bookingDate, disableEnquireCta])
+    setDisableEnquireCta(
+      !(
+        pickUpLocation?.length > 0 &&
+        dropLocation?.length > 0 &&
+        selectedDate?.toLocaleString()?.length > 0
+      )
+    );
+  }, [pickUpLocation, dropLocation, selectedDate, disableEnquireCta]);
 
-  const inputsConfig = [{
-    id: 1,
-    placeholder: 'Enter Pickup Location',
-    type: 'text',
-    value: '',
-    label: null
-  },
-  {
-    id: 2,
-    placeholder: 'Enter Drop Location',
-    type: 'text',
-    value: '',
-    label: null
-  },
-  {
-    id: 3,
-    placeholder: 'Choose Pickup Date',
-    type: 'date',
-    value: undefined,
-    label: 'Booking Date'
-  }]
+  const inputsConfig = [
+    {
+      id: 1,
+      placeholder: "Enter Pickup Location",
+      type: "text",
+      value: "",
+      label: null,
+    },
+    {
+      id: 2,
+      placeholder: "Enter Drop Location",
+      type: "text",
+      value: "",
+      label: null,
+    },
+  ];
 
   const updateDetails = (event, id) => {
-    switch(id) {
+    switch (id) {
       case 1:
-        dispatch(updatePickUpLocation({
-          pickUpLocation: event.target.value
-        }))
-        break
+        dispatch(
+          updatePickUpLocation({
+            pickUpLocation: event.target.value,
+          })
+        );
+        break;
       case 2:
-        dispatch(updateDropLocation({
-          dropLocation: event.target.value
-        }))
-        break
-      case 3:
-        dispatch(updateBookingDate({
-          bookingDate: event.target.value
-        }))
-        break
+        dispatch(
+          updateDropLocation({
+            dropLocation: event.target.value,
+          })
+        );
+        break;
+      // case 3: Removed updateBookingDate case, no longer needed
       case 4:
-        dispatch(updateVehicle({
-          vehicle: event.target.value
-        }))
-        break
+        dispatch(
+          updateVehicle({
+            vehicle: event.target.value,
+          })
+        );
+        break;
       default:
-        break
+        break;
     }
-  }
+  };
 
   const confirmBooking = () => {
-    const indianTime = new Date(bookingDate).toLocaleString("en-IN", {
+    const indianTime = new Date(selectedDate).toLocaleString("en-IN", {
       timeZone: "Asia/Kolkata",
       year: "numeric",
       month: "long",
       day: "numeric",
-      hour12: true,
-      hour: "numeric",
-      minute: "numeric",
-    })
-    const phone = 916200944189
+    });
+    const phone = 916200944189;
     const message = `https://api.whatsapp.com/send?phone=${encodeURIComponent(
       phone
     )}&text=Hi,%0AI want to book a cab, here are the details:%0A*Vehicle Type:* ${encodeURIComponent(
@@ -98,34 +103,41 @@ const BookingComp = () => {
       pickUpLocation
     )}%0A*Drop:* ${encodeURIComponent(
       dropLocation
-    )}%0A*Date:* ${encodeURIComponent(indianTime)}`
-    window.open(message, '_blank')
-  }
+    )}%0A*Date:* ${encodeURIComponent(indianTime)}`;
+    window.open(message, "_blank");
+  };
 
   return (
     <div className="booking-comp">
-      <div className='heading-section'>
-        <strong>
-          BEST INTERCITY CABS
-        </strong>
+      <div className="heading-section">
+        <strong>BEST INTERCITY CABS</strong>
       </div>
       <div className="form">
-        {inputsConfig.map(config => {
+        {inputsConfig.map((config) => {
           return (
             <InputComp
               key={config.id}
               type={config.type}
               placeholder={config.placeholder}
               label={config.label}
-              onChange={event => updateDetails(event, config.id)}
+              onChange={(event) => updateDetails(event, config.id)}
             />
-          )
+          );
         })}
+        <div>
+          <DatePickerInput
+            inputProps={{ readOnly: true }}
+            className="date-input"
+            selectedDate={selectedDate}
+            onChange={handleDateChange}
+          />
+        </div>
+
         <SelectComp
           name="vehicle-selector"
           options={availableVehicles}
           selected={vehicle}
-          onChange={event => updateDetails(event, 4)}
+          onChange={(event) => updateDetails(event, 4)}
         />
         <div className="action-container">
           <ButtonComp
@@ -133,14 +145,12 @@ const BookingComp = () => {
             disabled={disableEnquireCta}
             onClick={() => confirmBooking()}
           >
-            <span className="font-16-lh-20">
-              Enquire Now
-            </span>
+            <span className="font-16-lh-20">Enquire Now</span>
           </ButtonComp>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BookingComp
+export default BookingComp;

@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { useSelector } from "react-redux";
 import "./css/select-comp.css";
 
 const SelectComp = ({ name, options, selected, onChange }) => {
@@ -14,11 +11,7 @@ const SelectComp = ({ name, options, selected, onChange }) => {
       >
         {options.map((opt) => {
           return (
-            <option
-              key={opt.id}
-              className="option"
-              value={opt.value}
-            >
+            <option key={opt.id} className="option" value={opt.value}>
               {opt.name}
             </option>
           );

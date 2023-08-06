@@ -1,14 +1,14 @@
 .booking-comp {
   border-radius: 16px;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   padding: 16px;
   margin: 8px 16px;
   box-sizing: border-box;
   width: calc(100% - 32px);
 }
 .heading-section {
-  border-top: 1px solid #3C9B05;
-  border-bottom: 1px solid #3C9B05;
+  border-top: 1px solid #3c9b05;
+  border-bottom: 1px solid #3c9b05;
   padding: 8px 0px;
   display: flex;
   justify-content: center;
@@ -28,4 +28,32 @@
 }
 .action-container {
   padding: 16px 24px 0px 24px;
+}
+.react-datepicker-wrapper {
+  width: 100%;
+}
+.react-datepicker__header {
+  background-color: #3c9b05;
+  color: white;
+}
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  color: white;
+}
+.react-datepicker__day-name {
+  color: white;
+}
+.react-datepicker__day--keyboard-selected {
+  background-color: #3c9b05;
+  color: white;
+}
+.react-datepicker__navigation-icon--next::before {
+  border-color: #fff;
+}
+.react-datepicker__navigation-icon::before {
+  border-color: #fff;
+}
+.react-datepicker__navigation:hover *::before {
+  border-color: #fff;
 }

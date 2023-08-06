@@ -5,16 +5,22 @@ select {
 }
 .select {
   border-radius: 12px;
-  width: 100%;
-  background-color: white;
-  padding: 6px;
-  border: 1px solid #3C9B05;
-  font-size: 16px;
-  line-height: 20px;
-  height: 36px;
-  width: inherit;
-  color: #000000;
-  box-sizing: border-box;
+    width: 100%;
+    background-color: white;
+    padding: 4px 12px;
+    border: 1px solid #3c9b05;
+    font-size: 16px;
+    line-height: 16px;
+    height: 36px;
+    width: inherit;
+    color: #000000;
+    box-sizing: border-box;
+    color: #000;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.26px;
 }
 .select:active {
   box-shadow: 0px 3px #3C9B05;

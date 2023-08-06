@@ -17,6 +17,7 @@
 .usp-items {
   display: flex;
   justify-content: space-between;
+  flex-basis: calc(25% - 5px);
 }
 
 .usp-item {
@@ -28,4 +29,5 @@
   line-height: normal;
   letter-spacing: -0.18px;
   flex: 1;
+  max-width: calc(25% - 5px);
 }
