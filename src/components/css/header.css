@@ -4,7 +4,9 @@ ul {
   align-items: center;
   gap: 17.5px;
 }
-
+li{
+  color: white;
+}
 a {
   text-decoration: none;
 }
@@ -39,4 +41,16 @@ nav {
   height: calc(100vh - 70px);
   z-index: 2;
   box-sizing: border-box;
+}
+
+@media (min-width: 1240px) {
+nav {
+    padding: 16px 140px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
 }

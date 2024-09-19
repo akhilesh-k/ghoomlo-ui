@@ -1,12 +1,10 @@
-import './css/input-comp.css'
+import "./css/input-comp.css";
 
 const InputComp = ({ id, placeholder, type, value, label, onChange }) => {
   if (label?.length) {
     return (
-      <span className='input-container'>
-        <label htmlFor={`${type}-${id}`}>
-          {label}:
-        </label>
+      <span className="input-container">
+        <label htmlFor={`${type}-${id}`}>{label}:</label>
         <input
           id={`${type}-${id}`}
           className="input"
@@ -16,7 +14,7 @@ const InputComp = ({ id, placeholder, type, value, label, onChange }) => {
           onChange={onChange}
         />
       </span>
-    )
+    );
   } else {
     return (
       <input
@@ -27,8 +25,8 @@ const InputComp = ({ id, placeholder, type, value, label, onChange }) => {
         placeholder={placeholder}
         onChange={onChange}
       />
-    )
+    );
   }
-}
+};
 
-export default InputComp
+export default InputComp;

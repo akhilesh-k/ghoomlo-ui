@@ -64,6 +64,14 @@ const Header = () => {
           <CallPanel phoneNumber={phone.current} makeCall={makeCall} />
         </li>
       </ul>
+      <ul>
+        <li>Home</li>
+        <li>Airport Special</li>
+        <li>Outstation Cab</li>
+        <li>Local Taxi</li>
+        <li>Offers</li>
+        <li>FAQs</li>
+      </ul>
       {/* <HamburgerMenuComp /> */}
     </nav>
   );

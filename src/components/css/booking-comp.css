@@ -4,14 +4,17 @@
   padding: 16px;
   margin: 8px 16px;
   box-sizing: border-box;
-  width: calc(100% - 32px);
+  width: calc(100% - 32px) !important;
+}
+.input {
+  width: 100% !important;
 }
 .heading-section {
   border-top: 1px solid #3c9b05;
   border-bottom: 1px solid #3c9b05;
   padding: 8px 0px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .form {
   display: flex;
@@ -56,4 +59,34 @@
 }
 .react-datepicker__navigation:hover *::before {
   border-color: #fff;
+}
+.suggestions {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: calc(100% - 64px) !important;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+@media (min-width: 1240px) {
+  .booking-comp {
+    border-radius: 16px;
+    background-color: #d9d9d9;
+    padding: 16px;
+    margin: 8px 16px;
+    box-sizing: border-box;
+    width: calc(100% - 1032px);
+  }
 }
