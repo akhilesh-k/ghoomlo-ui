@@ -14,9 +14,23 @@ import DatePickerInput from "./DatePickerInput.jsx";
 
 import "./css/booking-comp.css";
 
-const BookingComp = () => {
+const BookingComp = ({ initialPickup = '', initialDropoff = '' }) => {
   const dispatch = useDispatch();
   const [selectedDate, setSelectedDate] = useState(null);
+
+  const [pickupInput, setPickupInput] = useState(initialPickup);
+  const [dropoffInput, setDropoffInput] = useState(initialDropoff);
+
+  useEffect(() => {
+    setPickupInput(initialPickup);
+    setDropoffInput(initialDropoff);
+    if (initialPickup) {
+      dispatch(updatePickUpLocation({ pickUpLocation: initialPickup }));
+    }
+    if (initialDropoff) {
+      dispatch(updateDropLocation({ dropLocation: initialDropoff }));
+    }
+  }, [initialPickup, initialDropoff, dispatch]);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -46,15 +60,17 @@ const BookingComp = () => {
       id: 1,
       placeholder: "Enter Pickup Location",
       type: "text",
-      value: "",
+      value: pickupInput,
       label: null,
+      onChange: (e) => setPickupInput(e.target.value),
     },
     {
       id: 2,
       placeholder: "Enter Drop Location",
       type: "text",
-      value: "",
+      value: dropoffInput,
       label: null,
+      onChange: (e) => setDropoffInput(e.target.value),
     },
   ];
 
@@ -120,7 +136,8 @@ const BookingComp = () => {
               type={config.type}
               placeholder={config.placeholder}
               label={config.label}
-              onChange={(event) => updateDetails(event, config.id)}
+              value={config.value} // Use value from inputsConfig
+              onChange={config.onChange} // Use onChange from inputsConfig
             />
           );
         })}
